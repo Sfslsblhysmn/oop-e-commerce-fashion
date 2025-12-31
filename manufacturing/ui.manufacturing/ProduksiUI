@@ -1,0 +1,92 @@
+package ui.manufacturing;
+
+import model.manufacturing.*;
+import service.manufacturing.ProduksiService;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProduksiUI {
+    public void tampilkanMenu() {
+        BahanBaku katunCombed = new BahanBaku(1, "Katun Combed 30s", 1000, "meter");
+        BahanBaku denim = new BahanBaku(2, "Denim", 800, "meter");
+        BahanBaku polyester = new BahanBaku(3, "Polyester", 900, "meter");
+        BahanBaku fleece = new BahanBaku(4, "Fleece", 700, "meter");
+        BahanBaku rib = new BahanBaku(5, "Rib Fabric", 600, "meter");
+        BahanBaku benangPutih = new BahanBaku(6, "Benang Jahit Putih", 500, "gulung");
+        BahanBaku benangHitam = new BahanBaku(7, "Benang Jahit Hitam", 500, "gulung");
+        BahanBaku resleting = new BahanBaku(8, "Resleting YKK", 400, "pcs");
+        BahanBaku kancing = new BahanBaku(9, "Kancing Plastik", 1000, "pcs");
+        BahanBaku labelBrand = new BahanBaku(10, "Label Brand", 800, "pcs");
+        BahanBaku tintaSablon = new BahanBaku(11, "Tinta Sablon Premium", 100, "liter");
+        BahanBaku plastikOPP = new BahanBaku(12, "Plastik OPP", 1000, "pcs");
+        BahanBaku hangTag = new BahanBaku(13, "Hang Tag", 800, "pcs");
+        BahanBaku karetPinggang = new BahanBaku(14, "Karet Pinggang", 500, "meter");
+        BahanBaku benangNilon = new BahanBaku(15, "Benang Nilon", 300, "gulung");
+
+
+        List<DetailResep> bahanKaos = new ArrayList<>();
+          bahanKaos.add(new DetailResep(katunCombed, 2));
+          bahanKaos.add(new DetailResep(benangPutih, 1));
+          bahanKaos.add(new DetailResep(rib, 0.5));
+          bahanKaos.add(new DetailResep(labelBrand, 1));
+          bahanKaos.add(new DetailResep(tintaSablon, 1));
+          bahanKaos.add(new DetailResep(plastikOPP, 1));
+        ResepBOM kaos = new ResepBOM(1, "Kaos Polos Premium", bahanKaos);
+
+        List<DetailResep> bahanVest = new ArrayList<>();
+          bahanVest.add(new DetailResep(polyester, 2));
+          bahanVest.add(new DetailResep(resleting, 1));
+          bahanVest.add(new DetailResep(benangHitam, 1));
+          bahanVest.add(new DetailResep(labelBrand, 1));
+          bahanVest.add(new DetailResep(plastikOPP, 1));
+        ResepBOM vest = new ResepBOM(2, "Vest Outdoor", bahanVest);
+
+        List<DetailResep> bahanRok = new ArrayList<>();
+          bahanRok.add(new DetailResep(denim, 2));
+          bahanRok.add(new DetailResep(kancing, 2));
+          bahanRok.add(new DetailResep(resleting, 1));
+          bahanRok.add(new DetailResep(labelBrand, 1));
+          bahanRok.add(new DetailResep(plastikOPP, 1));
+        ResepBOM rok = new ResepBOM(3, "Rok Denim", bahanRok);
+
+        List<DetailResep> bahanJaket = new ArrayList<>();
+          bahanJaket.add(new DetailResep(fleece, 3));
+          bahanJaket.add(new DetailResep(resleting, 1));
+          bahanJaket.add(new DetailResep(benangNilon, 1));
+          bahanJaket.add(new DetailResep(labelBrand, 1));
+          bahanJaket.add(new DetailResep(plastikOPP, 1));
+        ResepBOM jaket = new ResepBOM(4, "Jaket Hoodie", bahanJaket);
+
+        List<DetailResep> bahanCelana = new ArrayList<>();
+          bahanCelana.add(new DetailResep(denim, 2));
+          bahanCelana.add(new DetailResep(karetPinggang, 1));
+          bahanCelana.add(new DetailResep(resleting, 1));
+          bahanCelana.add(new DetailResep(labelBrand, 1));
+          bahanCelana.add(new DetailResep(plastikOPP, 1));
+        ResepBOM celana = new ResepBOM(5, "Celana Panjang", bahanCelana);
+
+        List<DetailResep> bahanKaosKaki = new ArrayList<>();
+          bahanKaosKaki.add(new DetailResep(polyester, 0.5));
+          bahanKaosKaki.add(new DetailResep(karetPinggang, 0.2));
+          bahanKaosKaki.add(new DetailResep(labelBrand, 1));
+          bahanKaosKaki.add(new DetailResep(plastikOPP, 1));
+        ResepBOM kaosKaki = new ResepBOM(6, "Kaos Kaki Sport", bahanKaosKaki);
+
+
+        ProduksiService service = new ProduksiService();
+          service.prosesProduksi(new Produksi(1, kaos, 100));
+          service.prosesProduksi(new Produksi(2, vest, 50));
+          service.prosesProduksi(new Produksi(3, rok, 60));
+          service.prosesProduksi(new Produksi(4, jaket, 40));
+          service.prosesProduksi(new Produksi(5, celana, 70));
+          service.prosesProduksi(new Produksi(6, kaosKaki, 200));
+
+
+         List<BahanBaku> semuaBahan = List.of( katunCombed, denim, polyester, fleece, rib, benangPutih, benangHitam, resleting, kancing, labelBrand, tintaSablon, plastikOPP, hangTag, karetPinggang, benangNilon);
+        
+         System.out.println("SISA STOK BAHAN BAKU:");
+         for (BahanBaku b : semuaBahan) {
+         System.out.println(b.getNama() + " : " + b.getStok() + " " + b.getSatuan());
+         }    
+    }
+}
