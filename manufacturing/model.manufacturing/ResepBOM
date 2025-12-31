@@ -1,0 +1,26 @@
+package model.manufacturing;
+import java.util.List;
+
+public class ResepBOM {
+    private int id;
+    private String namaProduk;
+    private List<DetailResep> daftarBahan;
+
+public ResepBOM(int id, String namaProduk, List<DetailResep> daftarBahan) {
+    this.id = id;
+    this.namaProduk = namaProduk;
+    this.daftarBahan = daftarBahan;
+}
+
+public int getId() {
+    return id;
+}
+
+public String getNamaProduk() {
+    return namaProduk;
+}
+
+public List<DetailResep> getDaftarBahan() {
+    return daftarBahan;
+}
+}
