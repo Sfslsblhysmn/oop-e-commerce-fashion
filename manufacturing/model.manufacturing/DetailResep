@@ -1,0 +1,19 @@
+package model.manufacturing;
+
+public class DetailResep {
+    private BahanBaku bahanBaku;
+    private int jumlah;
+
+public DetailResep(BahanBaku bahanBaku, int jumlah) {
+    this.bahanBaku = bahanBaku;
+    this.jumlah = jumlah;
+}
+
+public BahanBaku getBahanBaku() {
+    return bahanBaku;
+}
+
+public int getJumlah() {
+    return jumlah;
+}
+}
