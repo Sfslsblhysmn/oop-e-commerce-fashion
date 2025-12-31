@@ -1,0 +1,12 @@
+package service.manufacturing;
+
+import model.manufacturing.ResepBOM;
+import repository.manufacturing.ResepRepository;
+
+public class ResepService {
+    private ResepRepository repository = new ResepRepository();
+
+public void tambahResep(ResepBOM resep) {
+    repository.save(resep);
+}
+}
