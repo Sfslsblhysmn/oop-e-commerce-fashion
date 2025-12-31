@@ -1,0 +1,32 @@
+package model.manufacturing;
+import java.time.LocalDate;
+
+public class Produksi {
+    private int id;
+    private ResepBOM resep;
+    private int jumlahProduksi;
+    private LocalDate tanggalProduksi;
+
+public Produksi(int id, ResepBOM resep, int jumlahProduksi) {
+    this.id = id;
+    this.resep = resep;
+    this.jumlahProduksi = jumlahProduksi;
+    this.tanggalProduksi = LocalDate.now();
+}
+
+public int getId() {
+    return id;
+}
+
+public ResepBOM getResep() {
+    return resep;
+}
+
+public int getJumlahProduksi() {
+    return jumlahProduksi;
+}
+
+public LocalDate getTanggalProduksi() {
+    return tanggalProduksi;
+}
+}
