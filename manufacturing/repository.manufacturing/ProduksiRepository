@@ -1,0 +1,17 @@
+package repository.manufacturing;
+
+import model.manufacturing.Produksi;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProduksiRepository {
+    private List<Produksi> produksiList = new ArrayList<>();
+
+public void save(Produksi produksi) {
+    produksiList.add(produksi);
+}
+
+public List<Produksi> findAll() {
+    return produksiList;
+}
+}
