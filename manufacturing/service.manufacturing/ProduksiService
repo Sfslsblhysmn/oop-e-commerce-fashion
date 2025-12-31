@@ -1,0 +1,19 @@
+package service.manufacturing;
+
+import model.manufacturing.DetailResep;
+import model.manufacturing.Produksi;
+import repository.manufacturing.ProduksiRepository;
+
+public class ProduksiService {
+    private ProduksiRepository repository = new ProduksiRepository();
+
+public void prosesProduksi(Produksi produksi) {
+    for (DetailResep d : produksi.getResep().getDaftarBahan()) {
+    int total = d.getJumlah() * produksi.getJumlahProduksi();
+    d.getBahanBaku().kurangiStok(total);
+}
+repository.save(produksi);
+
+System.out.println("Produksi " + produksi.getResep().getNamaProduk() + " berhasil sebanyak " + produksi.getJumlahProduksi());
+}
+}
