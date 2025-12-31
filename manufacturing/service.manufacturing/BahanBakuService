@@ -1,0 +1,18 @@
+package service.manufacturing;
+
+import model.manufacturing.BahanBaku;
+import repository.manufacturing.BahanBakuRepository;
+
+public class BahanBakuService {
+    private BahanBakuRepository repository = new BahanBakuRepository();
+
+public void tambahBahan(BahanBaku bahan) {
+    repository.save(bahan);
+}
+
+public void tampilkanBahan() {
+    for (BahanBaku b : repository.findAll()) {
+    System.out.println(b.getNama() + " : " + b.getStok() + " " + b.getSatuan());
+    }
+}
+}
