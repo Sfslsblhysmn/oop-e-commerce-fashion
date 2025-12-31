@@ -1,0 +1,17 @@
+package repository.manufacturing;
+
+import model.manufacturing.BahanBaku;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BahanBakuRepository {
+    private List<BahanBaku> bahanList = new ArrayList<>();
+
+public void save(BahanBaku bahan) {
+    bahanList.add(bahan);
+}
+
+public List<BahanBaku> findAll() {
+    return bahanList;
+}
+}
