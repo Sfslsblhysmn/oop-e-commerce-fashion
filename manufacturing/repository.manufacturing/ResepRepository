@@ -1,0 +1,17 @@
+package repository.manufacturing;
+
+import model.manufacturing.ResepBOM;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ResepRepository {
+    private List<ResepBOM> resepList = new ArrayList<>();
+
+public void save(ResepBOM resep) {
+    resepList.add(resep);
+}
+
+public List<ResepBOM> findAll() {
+    return resepList;
+}
+}
